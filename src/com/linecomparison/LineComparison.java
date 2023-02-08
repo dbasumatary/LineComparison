@@ -1,6 +1,6 @@
 package com.linecomparison;
 import java.util.Scanner;
-/*Program to check the equality of two lines*/
+/*Program to compare two lines based on two end points*/
 public class LineComparison {
     /*Using a method to calculate the length of a line*/
     public double lengthCalculate(double x1,double y1, double x2, double y2){
@@ -36,6 +36,17 @@ public class LineComparison {
         }
         else{
             System.out.println("Therefore the two lines are not equal");
+        }
+        /*Using compareTo method to compare length of two lines*/
+        int compare = firstLine.compareTo(secondLine);
+        if(compare > 0){
+            System.out.println("The first line is greater than the second line.");
+        }
+        else if(compare < 0){
+            System.out.println("The second line is greater than the first line.");
+        }
+        else {
+            System.out.println("Both the lines are equal");
         }
     }
 }
