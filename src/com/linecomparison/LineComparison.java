@@ -1,15 +1,29 @@
 package com.linecomparison;
 import java.util.Scanner;
-/*Program to compare two lines based on two end points*/
+/*Using OOPS concept to compare two lines*/
 public class LineComparison {
-    /*Using a method to calculate the length of a line*/
-    public double lengthCalculate(double x1,double y1, double x2, double y2){
-        double length = Math.pow((x2-x1),2) + Math.pow((y2-y1),2);
-        return Math.sqrt(length);
+    /*Creating a method*/
+    public static void isEqual(double line1, double line2){                   //Checking equality of two lines
+        if(line1 == line2){
+            System.out.println("Therefore the two lines are equal");
+        }
+        else{
+            System.out.println("Therefore the two lines are not equal");
+        }
+    }
+    public static void compareLines(double line1, double line2){             //Comparing the length of two lines
+        if(line1 > line2){
+            System.out.println("The first line is greater than the second line.");
+        }
+        else if(line1 < line2){
+            System.out.println("The second line is greater than the first line.");
+        }
+        else {
+            System.out.println("Both the lines are equal");
+        }
     }
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        LineComparison length = new LineComparison();
         double x1, y1, x2, y2, x3, y3, x4, y4;
         System.out.println("---------Considering the first line-----------");
         System.out.println("Enter x and y coordinates of the first point: ");
@@ -25,28 +39,12 @@ public class LineComparison {
         System.out.println("Enter x and y coordinates of the fourth point: ");
         x4 = input.nextDouble();
         y4 = input.nextDouble();
-        Double firstLine = length.lengthCalculate(x1,y1,x2,y2);                 // Storing the line length in two different variables
+        double firstLine = Math.sqrt(Math.pow((x2-x1),2) + Math.pow((y2-y1),2));
         System.out.printf("\nThe length of first line is %.3f", firstLine);
-        Double secondLine = length.lengthCalculate(x3,y3,x4,y4);                // Storing the line length in two different variables
+        double secondLine = Math.sqrt(Math.pow((x4-x3),2) + Math.pow((y4-y3),2));
         System.out.printf("\nThe length of second line is %.3f", secondLine);
         System.out.println("\n");
-        /*Using equals method to check equality of two lengths*/
-        if(firstLine.equals(secondLine)){
-            System.out.println("Therefore the two lines are equal");
-        }
-        else{
-            System.out.println("Therefore the two lines are not equal");
-        }
-        /*Using compareTo method to compare length of two lines*/
-        int compare = firstLine.compareTo(secondLine);
-        if(compare > 0){
-            System.out.println("The first line is greater than the second line.");
-        }
-        else if(compare < 0){
-            System.out.println("The second line is greater than the first line.");
-        }
-        else {
-            System.out.println("Both the lines are equal");
-        }
+        isEqual(firstLine,secondLine);                                               //Calling the method isEqual
+        compareLines(firstLine,secondLine);                                          //Calling the method compareLines
     }
 }
